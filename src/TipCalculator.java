@@ -21,11 +21,16 @@ public class TipCalculator {
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
             number4 = scan.nextInt();
             number5 = number5 + number4;
-
         }
-
+        double number6 = (number2 / 100) * (number5 + 1);
         // code below the while loop runs after the loop ends
-        System.out.print("Done!");
+        System.out.println("Total bill before tip: " + (number5 + 1));
+        System.out.println("Total percentage: " + number2 + "%");
+        System.out.println("Total Tip " + number6);
+        System.out.println("Total bill with tip: " + (number5 + 1) + number6);
+        System.out.println("Per person cost before tip: " + (number5 +1) / number1);
+        System.out.println("Tip per person: " + (number6) / number1);
+        System.out.println("Total cost per person: " + ((number5 + 1) + number6) / number1);
 
 
 
