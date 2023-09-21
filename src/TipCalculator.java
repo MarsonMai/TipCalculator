@@ -12,6 +12,9 @@ public class TipCalculator {
         int people = scan.nextInt();
         System.out.print("Whats the tip percentage? (0-100): ");
         int tip = scan.nextInt();
+        System.out.print("How much money do you have:  ");
+        int money = scan.nextInt();
+
         // the while loop condition is checked,
         // and if TRUE, runs the code inside.
         // when the code inside is done running, the condition is rechecked,
@@ -30,16 +33,23 @@ public class TipCalculator {
         double roundedBillPlusTip = Math.round(billPlusTip * 100.0) / 100.0;
         double tipPerPerson = (totalPlusTip / people);
         double roundedTipPerPerson = Math.round(tipPerPerson * 100.0) / 100.0;
-
+        double newMoney = (roundedBillPlusTip - money);
         // code below the while loop runs after the loop ends
-        System.out.println("Total bill before tip: " + (totalCost + 1)); //learned to round from https://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
-        System.out.println("Total percentage: " + tip + "%");
-        System.out.println("Total Tip " + roundedTotalPlusTip);
-        System.out.println("Total bill with tip: " + roundedBillPlusTip);
-        System.out.println("Per person cost before tip: " + (totalCost +1) / people);
-        System.out.println("Tip per person: " + roundedTipPerPerson);
-        System.out.println("Total cost per person: " + ((totalCost + 1) + totalPlusTip) / people);
-        System.out.println("------------------------------------------------");
+        if (money > billPlusTip) {
+            System.out.println("Total bill before tip: " + (totalCost + 1)); //learned to round from https://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
+            System.out.println("Total percentage: " + tip + "%");
+            System.out.println("Total Tip " + roundedTotalPlusTip);
+            System.out.println("Total bill with tip: " + roundedBillPlusTip);
+            System.out.println("Per person cost before tip: " + (totalCost + 1) / people);
+            System.out.println("Tip per person: " + roundedTipPerPerson);
+            System.out.println("Total cost per person: " + ((totalCost + 1) + totalPlusTip) / people);
+            System.out.println("you will have: " + newMoney + "dollars");
+            System.out.println("------------------------------------------------");
+
+        } else {
+            System.out.println("you do not have enough money ");
+            System.out.println("you will need: " + newMoney);
+        }
         //System.out.println("Items ordered: ");
         //System.out.println();
 
