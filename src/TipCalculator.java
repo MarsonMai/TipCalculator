@@ -6,6 +6,7 @@ public class TipCalculator {
         Scanner scan = new Scanner(System.in);
         int cost = 0;
         double totalCost = 0;
+        System.out.println("------------------------------------------------");
         System.out.print("Welcome to the tip calculator! ");
         System.out.print("How many people are in the group: ");
         int people = scan.nextInt();
