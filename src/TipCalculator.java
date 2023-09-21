@@ -4,10 +4,10 @@ import java.lang.Math;
 public class TipCalculator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int cost = 0;
+        double cost = 0;
         double totalCost = 0;
-        System.out.println("------------------------------------------------");
-        System.out.print("Welcome to the tip calculator! ");    //welcomes the user
+        System.out.println("|-----------------------------|");
+        System.out.println("Welcome to the tip calculator! ");    //welcomes the user
         System.out.print("How many people are in the group: ");  // asks how much people are in the group
         int people = scan.nextInt();
         System.out.print("Whats the tip percentage? (0-100): ");   // tip percentage
@@ -16,7 +16,7 @@ public class TipCalculator {
         int money = scan.nextInt();
         while (cost != -1) {    //checks if cost is -1 and stops if it is
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
-            cost = scan.nextInt();
+            cost = scan.nextDouble();
             //System.out.print("Enter the item: ");
             //String items = scan.nextLine();
             totalCost = totalCost + cost;
@@ -37,12 +37,12 @@ public class TipCalculator {
             System.out.println("Per person cost before tip: " + (totalCost + 1) / people);
             System.out.println("Tip per person: " + roundedTipPerPerson);
             System.out.println("Total cost per person: " + ((totalCost + 1) + totalPlusTip) / people);
-            System.out.println("you will have: " + newMoney + "dollars");
-            System.out.println("------------------------------------------------");
+            System.out.println("you will have: " + newMoney + " dollars");
+            System.out.println("|-----------------------------|");
 
         } else {
             System.out.println("you do not have enough money ");
-            System.out.println("you will need: " + newMoney + "dollars");
+            System.out.println("you will need: " + newMoney + " dollars");
         }
         //System.out.println("Items ordered: ");
         //System.out.println();
