@@ -17,8 +17,7 @@ public class TipCalculator {
         while (cost != -1) {    //checks if cost is -1 and stops if it is
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end): ");
             cost = scan.nextDouble();
-            //System.out.print("Enter the item: ");
-            //String items = scan.nextLine();
+
             totalCost = totalCost + cost;
         }
         double totalPlusTip = (tip * 0.01) * (totalCost + 1);   // multiples by .01 so tip is a percentage and adds 1 to total cost to cancel out the -1
@@ -27,9 +26,9 @@ public class TipCalculator {
         double roundedBillPlusTip = Math.round(billPlusTip * 100.0) / 100.0;
         double tipPerPerson = (totalPlusTip / people);
         double roundedTipPerPerson = Math.round(tipPerPerson * 100.0) / 100.0;
-        double newMoney = (roundedBillPlusTip - money);  // checks money after you pay
+        double newMoney = (money - billPlusTip);  // checks money after you pay
         // code below the while loop runs after the loop ends
-        if (money > billPlusTip) {
+        if (money >= billPlusTip) {
             System.out.println("Total bill before tip: " + (totalCost + 1)); //learned to round from https://stackoverflow.com/questions/11701399/round-up-to-2-decimal-places-in-java
             System.out.println("Total percentage: " + tip + "%");
             System.out.println("Total Tip " + roundedTotalPlusTip);
@@ -41,11 +40,11 @@ public class TipCalculator {
             System.out.println("|-----------------------------|");
 
         } else {
-            System.out.println("you do not have enough money ");
+            newMoney = billPlusTip - money;
+            System.out.println("you do not have enough money(Including tip) ");
             System.out.println("you will need: " + newMoney + " dollars");
         }
-        //System.out.println("Items ordered: ");
-        //System.out.println();
+
 
 
     }
